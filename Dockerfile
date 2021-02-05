@@ -9,8 +9,8 @@ RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-p
     && apt-get install -y apt-transport-https \
     && apt-get update \
     && apt-get install -y dotnet-sdk-5.0 \
-    && cd /home/jovyan && dotnet new tool-manifest \
-    && dotnet tool install --add-source "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json" Microsoft.dotnet-interactive \
-    && dotnet interactive jupyter install
+    && cd /home/jovyan && dotnet new tool-manifest && dotnet tool install --add-source "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json" Microsoft.dotnet-interactive \
+    && dotnet interactive jupyter install \
+    && chown -R 1000:1000 /home/jovyan
 
 USER solr
